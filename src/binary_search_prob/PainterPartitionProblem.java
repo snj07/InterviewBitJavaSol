@@ -1,6 +1,5 @@
 package binary_search_prob;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 /*
  * https://www.interviewbit.com/problems/painters-partition-problem/

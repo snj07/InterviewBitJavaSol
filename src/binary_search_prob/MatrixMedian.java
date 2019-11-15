@@ -12,8 +12,8 @@ public class MatrixMedian {
 			if (mx[i][c - 1] > max)
 				max = mx[i][c - 1];
 		}
-		int t = (r * c + 1) / 2, mid, smallerElemCount, total;
-		while (min < max) {
+		int t = (r * c + 1) / 2, mid = 0, smallerElemCount, total;
+		while (min <= max) {
 			total = 0;
 			smallerElemCount = 0;
 			mid = (max + min) / 2;
@@ -28,17 +28,21 @@ public class MatrixMedian {
 				}
 				total += smallerElemCount;
 			}
-			if (total < t) {
+			if (total == t) {
+				break;
+			} else if (total < t) {
 				min = mid + 1;
 			} else {
-				max = mid;
+				max = mid - 1;
 			}
 
 		}
-		return min;
+		return mid;
 	}
 
 	public static void main(String[] args) {
+		int arr[][] = { { 1, 1, 1 }, { 1, 1, 1 }, { 5, 10, 10 } };
+		System.out.println(new MatrixMedian().findMedian(arr));
 	}
 
 }
